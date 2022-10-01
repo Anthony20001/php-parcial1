@@ -1,17 +1,17 @@
 <?php
-
+    include_once "../models/auto_model.php";
     class Auto_Controller{
-
+        private $arr_autos = [];
         private $inventario = 
         [
             [
                 "id" => 1, 
                 "marca" => "Hyundai", 
                 "modelo" => "Accent", 
-                "precio" => 46.72, 
+                "precio" => 46.72,
                 "dias_alquiler" => 7, 
                 "precio_pagar" => 327.04, 
-                "img_url" => "https://img2.freepng.es/20180323/daw/kisspng-2018-hyundai-accent-2010-hyundai-accent-2011-hyund-hyundai-5ab52d9d006cb5.9802120915218231330017.jpg"
+                "img_url" => "https://platform.cstatic-images.com/medium/in/v2/stock_photos/94d0d9e3-8f39-41fa-815e-52a65edb0e4d/e571abff-9e24-49d4-8678-bf834b3f8e72.png"
             ],
             [
                 "id" => 2, 
@@ -29,7 +29,7 @@
                 "precio" => 70.08, 
                 "dias_alquiler" => 5, 
                 "precio_pagar" => 350.4, 
-                "img_url" => "https://www.kindpng.com/picc/m/45-451883_new-2020-kia-sportage-ex-mazda-cx-5.png"
+                "img_url" => "https://dealerimages.dealereprocess.com/image/upload/c_limit,f_auto,fl_lossy,w_auto/v1/svp/dep/21kiasportagelx/kia_21sportagelx_angularfront_steelgray"
             ],
             [
                 "id" => 4, 
@@ -38,21 +38,34 @@
                 "precio" => 93.46, 
                 "dias_alquiler" => 4, 
                 "precio_pagar" => 373.84, 
-                "img_url" => "https://www.isuzupanama.com.pa/content/20210630134627-1.jpg"
+                "img_url" => "https://isuzu.gt/wp-content/uploads/2021/03/tql0025.png"
             ],
             [
                 "id" => 5, 
                 "marca" => "Chevrolet", 
-                "modelo" => "Captiva", 
+                "modelo" => "Traiblazer", 
                 "precio" => 74.76, 
                 "dias_alquiler" => 7, 
                 "precio_pagar" => 523.32, 
-                "img_url" => "https://www.chevrolet.com.pa/captiva2021_files/2022-captiva-blanco-v2.jpg?imwidth=960"
+                "img_url" => "https://avanta-avto-credit.ru/upload/iblock/143/143bf1dad61d47996754f8034cb30ffa.png"
             ]
         ];
 
         public function index(){
-            return $this->inventario;
+            foreach($this->inventario as $key){
+                $obj = new Auto_Model();
+                $obj->setId($key['id']);
+                $obj->setMarca($key['marca']);
+                $obj->setModelo($key['modelo']);
+                $obj->setPrecio($key['precio']);
+                $obj->setDias_alquiler($key['dias_alquiler']);
+                $obj->setPrecio_pagar($key['precio_pagar']);
+                $obj->setFoto($key['img_url']);
+                array_push($this->arr_autos, $obj);
+            }
+
+            return $this->arr_autos;
+            
         }
         
         public function create(){
@@ -65,6 +78,10 @@
 
         public function update(){
 
+        }
+
+        public function inventario(){
+            return $this->inventario;
         }
     }
     ?>

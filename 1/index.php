@@ -17,7 +17,7 @@
 
 <body>
     <div class="container">
-        <h1>Parcial N° 1 - Enunciado 4</h1>
+        <h1 class="mt-4 mb-4">Parcial N° 1 - Enunciado 4</h1>
 
         <table class="table table-dark">
             <thead>
@@ -37,22 +37,35 @@
             <tbody class="table-light">
                 <?php
                     $obj = new Auto_Controller();
-                    echo var_dump($obj->index()[0]['id'])."<br>"."<br>";
+                    //echo var_dump($obj->index()[0]['id'])."<br>"."<br>";
+
+                    $_SESSION['inventario'] = $obj->index();
+                    
                     foreach($obj->index() as $key){
                         echo
-                            '<tr>'.
-                                '<th>'.$key['id'].'</th>'.
+                            '<tr">'.
+                                '<td>'.$key['id'].'</td>'.
                                 '<td>'.$key['marca'].'</td>'.
                                 '<td>'.$key['modelo'].'</td>'.
                                 '<td>'.$key['precio'].'</td>'.
                                 '<td>'.$key['dias_alquiler'].'</td>'.
-                                '<td>'.$key['marca'].'</td>'.
-                                '<td>'.$key['marca'].'</td>'.
+                                '<td>'.$key['precio_pagar'].'</td>'.
+                                '<td>'.'<img src="'.$key['img_url'].'" alt="" width="150" height="100">'.'</td>'.
+                                '<td>'.
+                                    '<form action="mostrar.php" method="get">
+                                        <input type="hidden" name="id" value="'.$key['id'].'">
+                                        <input type="submit" value="Ver" class="btn btn-primary w-100">
+                                    </form>'.
+                                '</td>'.
                             '</tr>';
                     }
                     
                 ?>
+
             </tbody>
+
+
+
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
