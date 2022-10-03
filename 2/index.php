@@ -211,7 +211,7 @@
                                 <h6 class="card-title" id="cuenta_nombre">Cuenta de Ahorros</h6>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <p class="card-text text-secondary" style="font-size: 13px;" id="cuenta_numero">
-                                        04-42-98-14341-1</p>
+                                        03-12-98-45641-4</p>
                                     <h6 class="text-primary fw-bold cuenta_saldo" id="">$158.43</h6>
                                 </div>
                             </div>
