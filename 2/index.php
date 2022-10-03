@@ -1,178 +1,256 @@
-<?php 
-    session_start();
-    include_once "controllers/auto_controller.php";
-    include_once "models/auto_model.php"
-?>
-
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/e777bb77a8.js" crossorigin="anonymous"></script>
+    <title>Banca en Línea</title>
 </head>
 
-<body>
-    <div class="">
-        <!-- Navbar================================================================================ -->
-        <!-- Image and text -->
-        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Alquila ya!</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Sobre Nosotros</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Contacto
-                            </a>
+<body style="background-color: #130C7A">
+    <style>
+    .button1 {
+        background-color: #2295D1;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        margin-right: 10px;
+    }
 
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Buscar</button>
-                    </form>
-                </div>
+    .button2 {
+        background-color: #1B70B7;
+        color: white;
+        cursor: pointer;
+        border-radius: 20px;
+        border: none;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .card2 {
+        border-radius: 10px;
+        padding: 8px;
+        border: solid grey 1px;
+        margin-left: 30px;
+        position: absolute;
+        z-index: 1;
+        margin-top: 130px;
+        width: 210px;
+    }
+
+    .celular {
+        border-radius: 10px;
+        border: solid black 15px;
+        width: 300px;
+        height: 540px;
+        background-color: white;
+        padding: 15px;
+        border-bottom: solid black 40px;
+    }
+    </style>
+    <div class="container-fluid" height: 100%;">
+        <nav class="d-flex p-4 justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="./public/img/dinero_nav.png" alt="" width="50" height="50" style="margin-right: 15px;">
+                <h5 class="text-white">Banco Imperial</h5>
+            </div>
+            <div>
+                <button class="button1">
+                    Crear Dispositivo
+                </button>
+                <button class="button2">
+                    Descargar App
+                </button>
             </div>
         </nav>
 
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
+        <div class="row mt-3">
+            <div class="d-block">
+                <h4 class="text-center text-white mb-4">Banca en Línea</h4>
+                <img src="./public/img/dinero_body.png" alt="" width="90" height="90" class="d-block mx-auto">
             </div>
-
-
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://www.toyota.com.gt/hubfs/Imagenes_optimizadas/toyota-rush-banner-diseno-1920x1000-optimizada.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://carsguide-res.cloudinary.com/image/upload/f_auto%2Cfl_lossy%2Cq_auto%2Ct_default/v1/editorial/kia-sportage-gt-line-my20-tw-1001x565-%281%29.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://www.elcarrocolombiano.com/wp-content/uploads/2019/05/20190530-CHEVROLET-TRAILBLAZER-2021-NORTEAMERICA-01.jpg"
-                            class="d-block w-100" alt="...">
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
 
 
-        <div class="row mt-3 d-flex justify-content-between p-4">
+        <div class="row mt-5 d-flex justify-content-center align-items-center">
 
-            <div class="col-2 d-block">
-                <h2 class="text-center mt-3 mb-4">Filtros</h2>
-                <form action="index.php" method="get" class="mb-2">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected disabled="true">Precio</option>
-                        <option value=" 1">Ascendente</option>
-                        <option value="2">Descendente</option>
-                    </select>
-                </form>
+            <div class="col-3 mx-auto align-items-center">
+                <div class="celular">
+                    <img src=" ./public/img/dinero_nav.png" alt="" width="45" height="45" class="mb-2 d-block mx-auto">
+                    <h6 class="text-center fw-bold">Banco Imperial</h6>
+                    <h6 class="mt-3">Bienvenido, Anthony</h6>
 
-                <form action="index.php" method="get">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected disabled="true">Marca</option>
-                        <option value=" 1">Toyota</option>
-                        <option value="2">Hyundai</option>
-                        <option value="3">Izusu</option>
-                    </select>
-                </form>
-            </div>
+                    <div class="body_celular">
+                        <p class="text-primary mt-4">Cuentas</p>
 
+                        <div style="overflow:scroll">
+                            <div class="card" style="width: 15rem; height: 5rem;">
+                                <div class="card-body">
+                                    <h6 class="card-title" id="cuenta_nombre">Cuenta de Ahorros</h6>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="card-text text-secondary" style="font-size: 13px;" id="cuenta_numero">
+                                            04-42-98-14341-1</p>
+                                        <h6 class="text-primary fw-bold cuenta_saldo" id="">$158.43</h6>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div>
+                                <?php 
+                            if(isset($_GET['cuenta_nombre']) && isset($_GET['cuenta_numero']) && isset($_GET['cuenta_saldo'])){
+                                include_once "controllers/cuenta_controller.php";
 
-            <div class="col-9">
-                <h2 class="text-center mt-3 mb-4">Inventario</h2>
-
-                <div class="d-flex justify-content-between">
-                    <?php
-                        $obj = new Auto_Controller();
-                        //echo var_dump($obj->index()[0]['id'])."<br>"."<br>";
-    
-                        $_SESSION['inventario'] = $obj->index();
-                        
-                        foreach($obj->index() as $key){
-
-                            echo '<div class="d-block">
-                
-            </div>';
-                            echo var_dump($obj->index()->getId());
+                                $obj_controller = new Cuenta_Controller();
+                                $obj_controller->crear_cuenta(
+                                    $_GET['cuenta_nombre'], 
+                                    $_GET['cuenta_numero'], 
+                                    $_GET['cuenta_saldo']);
                                 
-                        }
-                    ?>
-
-
-                    <div class="card" style="width: 13rem;">
-                        <img src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap" class="card-img-top"
-                            alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Marca + Modelo</h5>
-                            <p class="card-text">Some quick example text to build .</p>
+                                foreach($obj_controller->mostrar_cuentas() as $key){
+                                    echo 
+                                '<div class="card d-grid gap-4" style="width: 15rem; height: 5rem;">
+                                    <div class="card-body" id="cuenta_card">
+                                        <h6 class="card-title cuenta_nombre" id="">'.$key['cuenta_nombre'].'</h6>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="card-text text-secondary cuenta_numero" style="font-size: 13px;" id="">'.
+                                            $key['cuenta_numero'].
+                                            '</p>
+                                            <h6 class="text-primary fw-bold cuenta_saldo" id="">$'.$key['cuenta_saldo'].'</h6>
+                                        </div>
+                                    </div>
+                                </div>';
+                                }
+                            }
+                        ?>
+                            </div>
                         </div>
+
+
+
+                        <div class="d-block align-items-end">
+                            <button class="btn btn-outline-primary mt-5 w-100 btn_crear_cuenta" id="">Crear
+                                cuenta</button>
+                            <button class="btn_transferir btn btn-primary text-white w-100 mt-2"
+                                id="">Transferir</button>
+                        </div>
+
                     </div>
 
-                    <div class="card" style="width: 13rem;">
-                        <img src="https://dummyimage.com/180x120/dbdbdb/787878.png&text=Image+cap" class="card-img-top"
-                            alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Marca + Modelo</h5>
-                            <p class="card-text">Some quick example text to build .</p>
-                        </div>
+
+                    <div class="body_transferencia" style="display: none;">
+                        <h6 class="text-primary text-center mt-5 mb-4">Transferencia</h6>
+
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Cuenta a debitar</option>
+                            <option value="1">Cuenta de Ahorros</option>
+                        </select>
+
+                        <input type="number" name="" id="" placeholder="Enviar a" class="form-control mt-3">
+                        <input type="number" name="" id="cantidad_dinero" class="w-100 mt-3 form-control"
+                            placeholder="Monto $0.00">
+
+                        <button class="btn btn-outline-success w-100 mt-5 transferencia_btn_enviar">Enviar</button>
                     </div>
 
+
+                    <div class="body_transferencia" style="display: none;">
+                        <h6 class="text-primary text-center mt-5 mb-4">Transferencia</h6>
+
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Cuenta a debitar</option>
+                            <option value="1">Cuenta de Ahorros</option>
+                        </select>
+
+                        <input type="number" name="" id="" placeholder="Enviar a" class="form-control mt-3">
+                        <input type="number" name="" id="cantidad_dinero" class="w-100 mt-3 form-control"
+                            placeholder="Monto $0.00">
+
+                        <button class="btn btn-outline-success w-100 mt-5 transferencia_btn_enviar">Enviar</button>
+                    </div>
+
+
+                    <div class="body_crear_cuenta" style="display: none;">
+                        <h6 class="text-primary text-center mt-5 mb-4">Crear cuenta</h6>
+                        <form action="index.php" method="get">
+                            <input type="text" placeholder="Nombre de la cuenta" class="form-control mb-3"
+                                name="cuenta_nombre">
+                            <input type="text" placeholder="Número de la cuenta" class="form-control mb-5"
+                                name="cuenta_numero">
+                            <input type="hidden" placeholder="Número de la cuenta" class="form-control mb-5"
+                                value="0.00" name="cuenta_saldo">
+                            <button class="btn btn-outline-primary w-100 mt-5 cuenta_btn_crear">Crear</button>
+                        </form>
+                        <!-- Button trigger modal -->
+                    </div>
                 </div>
+            </div>
 
+
+            <div class="col-1 mx-auto align-items-center">
+                <img src="./public/img/transferir.png" alt="" width="90" height="90">
+            </div>
+
+
+            <div class="col-3 mx-auto align-items-center">
+                <div class="celular" id="container_celular">
+                    <img src="./public/img/dinero_nav.png" alt="" width="45" height="45" class="mb-2 d-block mx-auto">
+                    <h6 class="text-center fw-bold">Banco Imperial</h6>
+                    <h6 class="mt-3">Bienvenido, Uriel</h6>
+
+                    <div class="body_celular">
+                        <p class="text-primary mt-4">Cuentas</p>
+                        <div class="card" style="width: 15rem; height: 5rem;">
+                            <div class="card-body">
+                                <h6 class="card-title" id="cuenta_nombre">Cuenta de Ahorros</h6>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <p class="card-text text-secondary" style="font-size: 13px;" id="cuenta_numero">
+                                        04-42-98-14341-1</p>
+                                    <h6 class="text-primary fw-bold cuenta_saldo" id="">$158.43</h6>
+                                </div>
+                            </div>
+                            <div class="d-block mt-5">
+                                <button class="btn btn-outline-primary mt-5 w-100 btn_crear_cuenta" id="">Crear
+                                    cuenta</button>
+                                <button class="btn btn-primary text-white w-100 mt-2 btn_transferir"
+                                    id="">Transferir</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="body_transferencia" style="display: none;">
+                        <h6 class="text-primary text-center mt-5 mb-4">Transferencia</h6>
+
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected disabled>Cuenta a debitar</option>
+                            <option value="1">Cuenta de Ahorros</option>
+                        </select>
+
+                        <input type="number" name="" id="" placeholder="Enviar a" class="form-control mt-3">
+                        <input type="number" name="" id="cantidad_dinero" class="w-100 mt-3 form-control"
+                            placeholder="Monto $0.00">
+
+                        <button class="btn btn-outline-success w-100 mt-5 transferencia_btn_enviar">Enviar</button>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
-
+    <script src="./public/js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 
-    <style>
-    body {
-        width: 100%;
-        margin: 0;
-    }
-    </style>
+
+
+
 </body>
 
 </html>
